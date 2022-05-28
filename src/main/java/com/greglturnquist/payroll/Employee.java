@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package com.greglturnquist.payroll;
-
 import java.util.Objects;
 
 import javax.persistence.Entity;
