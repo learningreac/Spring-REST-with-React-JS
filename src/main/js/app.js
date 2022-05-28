@@ -30,6 +30,7 @@ class App extends React.Component { // <1>
 		return (
 			<>
 			<EmployeeList employees={this.state.employees}/>
+			<br></br>
 			<PlantList plants = {this.state.plants} />		
 			</>
 			
