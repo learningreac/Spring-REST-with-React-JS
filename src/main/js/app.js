@@ -1,5 +1,7 @@
 'use strict';
 
+import PlantList from './PlantList';
+
 // tag::vars[]
 const React = require('react'); // <1>
 const ReactDOM = require('react-dom'); // <2>
@@ -11,18 +13,26 @@ class App extends React.Component { // <1>
 
 	constructor(props) {
 		super(props);
-		this.state = {employees: []};
+		this.state = {employees: [],
+						plants: []};
 	}
 
 	componentDidMount() { // <2>
 		client({method: 'GET', path: '/api/employees'}).done(response => {
 			this.setState({employees: response.entity._embedded.employees});
 		});
+		client({method:'GET', path:'api/plants'}).done(response => {
+			this.setState({plants: response.entity._embedded.plants});
+		});
 	}
 
 	render() { // <3>
 		return (
+			<>
 			<EmployeeList employees={this.state.employees}/>
+			<PlantList plants = {this.state.plants} />
+			</>
+			
 		)
 	}
 }

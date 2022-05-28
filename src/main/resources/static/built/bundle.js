@@ -34015,6 +34015,39 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/** @license MIT License (c) copyright 2010-20
 
 /***/ }),
 
+/***/ "./src/main/js/PlantList.js":
+/*!**********************************!*\
+  !*** ./src/main/js/PlantList.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Plant = function Plant(props) {
+  console.log('plant component');
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.plant.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.plant.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.plant.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.plant.sunlightLevel), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.plant.fertilizing), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.plant.watering));
+};
+
+var PlantList = function PlantList(_ref) {
+  var plants = _ref.plants;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, plants.map(function (plant) {
+    /*#__PURE__*/
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Plant, {
+      key: plant._links.self.href,
+      props: plant
+    });
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PlantList);
+
+/***/ }),
+
 /***/ "./src/main/js/api/uriListConverter.js":
 /*!*********************************************!*\
   !*** ./src/main/js/api/uriListConverter.js ***!
@@ -34085,11 +34118,13 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function (r
 /*!****************************!*\
   !*** ./src/main/js/app.js ***!
   \****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
- // tag::vars[]
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PlantList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PlantList */ "./src/main/js/PlantList.js");
+
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -34112,6 +34147,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+ // tag::vars[]
 
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js"); // <1>
 
@@ -34137,7 +34174,8 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      employees: []
+      employees: [],
+      plants: []
     };
     return _this;
   }
@@ -34156,14 +34194,24 @@ var App = /*#__PURE__*/function (_React$Component) {
           employees: response.entity._embedded.employees
         });
       });
+      client({
+        method: 'GET',
+        path: 'api/plants'
+      }).done(function (response) {
+        _this2.setState({
+          plants: response.entity._embedded.plants
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
       // <3>
-      return /*#__PURE__*/React.createElement(EmployeeList, {
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(EmployeeList, {
         employees: this.state.employees
-      });
+      }), /*#__PURE__*/React.createElement(_PlantList__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        plants: this.state.plants
+      }));
     }
   }]);
 

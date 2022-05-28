@@ -19,8 +19,6 @@ public class Plant {
     private final String sunlightLevel;
     private final String fertilizing;
     private final String watering;
-    // private Integer rating;
-
 
 
     @Override

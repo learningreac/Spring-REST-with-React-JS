@@ -1,6 +1,8 @@
-c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\EmployeeRepository.java
+c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\controller\PlantController.java
 c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\ReactAndSpringDataRestApplication.java
-c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\Employee.java
-c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\HomeController.java
-c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\skyn\Plant.java
+c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\repository\EmployeeRepository.java
+c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\repository\PlantRepository.java
+c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\entity\Employee.java
+c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\controller\HomeController.java
 c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\DatabaseLoader.java
+c:\myrepo\mjava\javatutorial\skyn\basic\src\main\java\com\greglturnquist\payroll\entity\Plant.java
