@@ -5,29 +5,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 @Entity 
+@Data
+@RequiredArgsConstructor
 public class Plant {
     private @Id @GeneratedValue Long id;
-    private String name;
-    private String category;
-    private Float price;
-    private String sunlightLevel;
-    private String fertilizing;
-    private String watering;
+    private final String name;
+    private final String category;
+    private final Float price;
+    private final String sunlightLevel;
+    private final String fertilizing;
+    private final String watering;
     // private Integer rating;
 
-    private Plant() {};
 
-    public Plant(String name, String category, Float price, String sunlightLevel, 
-                    String fertilizing, String watering) {
-        this.name = name;
-        this.category = category;
-        this.price = price;
-        this.sunlightLevel = sunlightLevel;
-        this.fertilizing = fertilizing;
-        this.watering = watering;
-        // this.rating = rating;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -56,61 +50,5 @@ public class Plant {
     public void setId(Long id){
         this.id = id;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCategory(){
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Float getPrice() {
-        return price;
-    }
-
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
-    public String getSunlightLevel() {
-        return sunlightLevel;
-    }
-
-    public void setSunlightLevel(String sunlightLevel) {
-        this.sunlightLevel = sunlightLevel;
-    }
-
-    public String getFertilizing() {
-        return sunlightLevel;
-    }
-
-    public void setFertilizing(String fertilizing) {
-        this.fertilizing = fertilizing;
-    }
-
-    public String getWatering() {
-        return watering;
-    }
-
-    public void setWatering(String watering) {
-        this.watering = watering;
-    }
-
-    // public Integer getRating() {
-    //     return rating;
-    // }
-
-    // public void setRating(Integer rating) {
-    //     this.rating = rating;
-    // }
 }
 
