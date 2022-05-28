@@ -25,12 +25,12 @@ class App extends React.Component { // <1>
 			this.setState({plants: response.entity._embedded.plants});
 		});
 	}
-
+// 
 	render() { // <3>
 		return (
 			<>
 			<EmployeeList employees={this.state.employees}/>
-			<PlantList plants = {this.state.plants} />
+			<PlantList plants = {this.state.plants} />		
 			</>
 			
 		)

@@ -34202,7 +34202,8 @@ var App = /*#__PURE__*/function (_React$Component) {
           plants: response.entity._embedded.plants
         });
       });
-    }
+    } // 
+
   }, {
     key: "render",
     value: function render() {
