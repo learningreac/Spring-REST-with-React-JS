@@ -16,7 +16,9 @@
 package com.greglturnquist.payroll;
 
 import com.greglturnquist.payroll.entity.Employee;
+import com.greglturnquist.payroll.entity.Plant;
 import com.greglturnquist.payroll.repository.EmployeeRepository;
+import com.greglturnquist.payroll.repository.PlantRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -31,18 +33,21 @@ import org.springframework.stereotype.Component;
 public class DatabaseLoader implements CommandLineRunner { // <2>
 
 	private final EmployeeRepository repository;
-	//  private final PlantRepository plantrepo;
+    private final PlantRepository plantrepository;
 
 
+   
 	@Autowired // <3>
-	public DatabaseLoader(EmployeeRepository repository) {
+	public DatabaseLoader(EmployeeRepository repository, PlantRepository plantRepository) {
 		this.repository = repository;
-		//  this.plantrepo = prepo;
+		this.plantrepository = plantRepository;
 	}
 
 	@Override
 	public void run(String... strings) throws Exception { // <4>
 		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer"));
+		this.repository.save(new Employee("testname", "testlast", "testdis"));
+		this.plantrepository.save(new Plant("name", "category", (float) 1.5, "sunlightLevel", "fertilizing", "watering"));
 	}
 }
 // end::code[]

@@ -1,5 +1,4 @@
 package com.greglturnquist.payroll.entity;
-
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -10,22 +9,24 @@ import javax.persistence.Id;
 public class Plant {
     private @Id @GeneratedValue Long id;
     private String name;
-    private Double price;
+    private String category;
+    private Float price;
     private String sunlightLevel;
     private String fertilizing;
     private String watering;
-    private Double rating;
+    // private Integer rating;
 
     private Plant() {};
 
-    public Plant(String name, Double price, String sunlightLevel, 
-                    String fertilizing, String watering, Double rating) {
+    public Plant(String name, String category, Float price, String sunlightLevel, 
+                    String fertilizing, String watering) {
         this.name = name;
+        this.category = category;
         this.price = price;
         this.sunlightLevel = sunlightLevel;
         this.fertilizing = fertilizing;
         this.watering = watering;
-        this.rating = rating;
+        // this.rating = rating;
     }
 
     @Override
@@ -34,17 +35,18 @@ public class Plant {
         if (o == null || getClass() != o.getClass()) return false;
         Plant plant = (Plant) o;
         return Objects.equals(id, plant.id) && 
+            Objects.equals(category, plant.category) &&
             Objects.equals(name, plant.name) &&
             Objects.equals(price, plant.price) &&
             Objects.equals(sunlightLevel, plant.sunlightLevel) &&
             Objects.equals(fertilizing, plant.fertilizing) &&
-            Objects.equals(watering, plant.watering) &&
-            Objects.equals(rating, plant.rating);
+            Objects.equals(watering, plant.watering) ;
+            // &&   Objects.equals(rating, plant.rating);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price, sunlightLevel, fertilizing, watering, rating);
+        return Objects.hash(id, name, category, price, sunlightLevel, fertilizing, watering);
     }
 
     public Long getId() {
@@ -63,11 +65,19 @@ public class Plant {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public String getCategory(){
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
@@ -95,12 +105,12 @@ public class Plant {
         this.watering = watering;
     }
 
-    public Double getRating() {
-        return rating;
-    }
+    // public Integer getRating() {
+    //     return rating;
+    // }
 
-    public void setRating(Double rating) {
-        this.rating = rating;
-    }
+    // public void setRating(Integer rating) {
+    //     this.rating = rating;
+    // }
 }
 
