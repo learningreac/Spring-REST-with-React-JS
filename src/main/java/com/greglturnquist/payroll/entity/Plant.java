@@ -1,4 +1,4 @@
-package com.greglturnquist.skyn;
+package com.greglturnquist.payroll.entity;
 
 import java.util.Objects;
 

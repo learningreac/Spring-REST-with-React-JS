@@ -15,11 +15,13 @@
  */
 package com.greglturnquist.payroll;
 
+import com.greglturnquist.payroll.entity.Employee;
+import com.greglturnquist.payroll.repository.EmployeeRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.greglturnquist.skyn.PlantRepository;
 
 /**
  * @author Greg Turnquist
@@ -29,13 +31,13 @@ import com.greglturnquist.skyn.PlantRepository;
 public class DatabaseLoader implements CommandLineRunner { // <2>
 
 	private final EmployeeRepository repository;
-	// private final PlantRepository plantrepo;
+	//  private final PlantRepository plantrepo;
 
 
 	@Autowired // <3>
 	public DatabaseLoader(EmployeeRepository repository) {
 		this.repository = repository;
-		// this.plantrepo = prepo;
+		//  this.plantrepo = prepo;
 	}
 
 	@Override
